@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kategori',50);
             $table->double('nominal');
             $table->string('tujuan');
-            $table->char('account_id',16)->nullable();
+            $table->char('account_id',16)->index()->nullable();
             $table->timestamps();
         });
     }

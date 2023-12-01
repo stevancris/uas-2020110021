@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->char('id',16)->primary()->autoIncrement();
-            $table->string('name');
+            $table->char('id',16)->index()->autoIncrement();
+            $table->string('nama');
             $table->string('jenis', 50);
             $table->timestamps();
         });
