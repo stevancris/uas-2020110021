@@ -1,12 +1,5 @@
 version: '3.8'
 services:
-  app:
-    container_name: app
-    image: bitnami/mysql:8.1.0
-    networks:
-      - learn
-    depends_on:
-      - db
   db:
     container_name: db
     image: bitnami/mysql:8.1.0
@@ -26,19 +19,19 @@ services:
     networks:
       - learn
     ports:
-      - 5000:3306
-  ngrok:
-    container_name: ngrok
-    image: ngrok/ngrok:latest 
-    restart: unless-stopped
-    command: ["start", "--all", "--config", "/etc/ngrok.yaml"]
-    volumes:
-      - $PWD//ngork/ngrok.yaml:/etc/ngrok.yaml
-    ports:
-      - 4040:4040
-  nginx:
-    container_name: nginx
-    image: nginx:alpine3.18-slim
+      - 6033:3306
+  # ngrok:
+  #   container_name: ngrok
+  #   image: ngrok/ngrok:latest 
+  #   restart: unless-stopped
+  #   command: ["start", "--all", "--config", "/etc/ngrok.yaml"]
+  #   volumes:
+  #     - $PWD//ngork/ngrok.yaml:/etc/ngrok.yaml
+  #   ports:
+  #     - 4040:4040
+  # nginx:
+  #   container_name: nginx
+  #   image: nginx:alpine3.18-slim
 networks:
   learn:
     driver: bridge
